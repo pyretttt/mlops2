@@ -1,0 +1,36 @@
+schema: '2.0'
+stages:
+  get-features:
+    cmd: python3 scripts/data_processing/get_features.py data/raw/iris.csv
+    deps:
+    - path: data/raw/iris.csv
+      hash: md5
+      md5: 33c4b790dcb2ae634cdbece3efd48310
+      size: 4002
+    - path: scripts/data_processing/get_features.py
+      hash: md5
+      md5: 3de0ad706079ba345157854416268db0
+      size: 210
+    outs:
+    - path: data/features
+      hash: md5
+      md5: 42b403064c4080f0ff03fab533dca73e.dir
+      size: 4002
+      nfiles: 1
+  prepare:
+    cmd: python3 scripts/data_processing/prepare_features.py data/features/train.csv
+    deps:
+    - path: data/features/train.csv
+      hash: md5
+      md5: 33c4b790dcb2ae634cdbece3efd48310
+      size: 4002
+    - path: scripts/data_processing/prepare_features.py
+      hash: md5
+      md5: ae97b79111ea2f4952ca9eae4887b546
+      size: 446
+    outs:
+    - path: data/prepared
+      hash: md5
+      md5: 6f27f80e90005b141e412242338feac0.dir
+      size: 4379
+      nfiles: 1

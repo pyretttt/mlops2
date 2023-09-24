@@ -1,0 +1,16 @@
+stages:
+  get-features:
+    cmd: python3 scripts/data_processing/get_features.py data/raw/iris.csv
+    deps: 
+    - data/raw/iris.csv
+    - scripts/data_processing/get_features.py
+    outs:
+    - data/features
+  prepare:
+    cmd: python3 scripts/data_processing/prepare_features.py data/features/train.csv
+    deps:
+    - data/features/train.csv
+    - scripts/data_processing/prepare_features.py
+    outs:
+    - data/prepared
+
