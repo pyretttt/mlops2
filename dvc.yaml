@@ -13,4 +13,14 @@ stages:
     - scripts/data_processing/prepare_features.py
     outs:
     - data/prepared
+  train:
+    cmd: python3 scripts/model_learning/dt.py data/prepared/prepared.csv model.pkl
+    deps:
+    - data/prepared/prepared.csv
+    - scripts/model_learning/dt.py
+    params:
+    - train.max_depth
+    - train.seed
+    outs:
+    - model.pkl
 

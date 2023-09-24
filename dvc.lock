@@ -34,3 +34,23 @@ stages:
       md5: 6f27f80e90005b141e412242338feac0.dir
       size: 4379
       nfiles: 1
+  train:
+    cmd: python3 scripts/model_learning/dt.py data/prepared/prepared.csv model.pkl
+    deps:
+    - path: data/prepared/prepared.csv
+      hash: md5
+      md5: 9378f503180875957574b126d592727c
+      size: 4379
+    - path: scripts/model_learning/dt.py
+      hash: md5
+      md5: 2b52b5dbf01074610c173a977d759c50
+      size: 619
+    params:
+      params.yaml:
+        train.max_depth: 10
+        train.seed: 42
+    outs:
+    - path: model.pkl
+      hash: md5
+      md5: c5a5e2d29303ea89d927adfed8151b4d
+      size: 2785
