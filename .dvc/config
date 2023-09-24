@@ -2,3 +2,5 @@
     remote = ssh-storage
 ['remote "ssh-storage"']
     url = ssh://dvc@192.168.64.9/opt/datasets
+    user = pyretttt
+    port = 22
